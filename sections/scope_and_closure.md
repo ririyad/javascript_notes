@@ -19,4 +19,25 @@
 In this code block, when the function is called the method argument acts as a new variable. So, the name variable initialized first and the name in method argument are not the same.
 
 - IIFE: Immediately Invoked Function Expression
-- In JavaScript, if you declare variables then you can do both read and write operation. But if you don't declare variable, you can do write operation, but you can't do read operation.
+- In JavaScript, if you declare variables then you can do both read and write operation. But if you don't declare variable, you can do write operation, but you can't do read operation. For example:
+```javascript
+    //with declaring
+    var foo = 10; //write
+    console.log(foo) //read
+
+    //without declaring
+    foo = 10 // this is okay
+
+    //without declaring variable
+    console.log(foo) // ReferenceError, 'foo' is not defined
+```
+- When you run a JavaScript on a browser the global object is usually the window object. for example if we type 'window' on the console of a browser we see some properties. Here 'window' is the global object and that contains these global properties. So now, when we create a global variable, you are actually creating global properties of 'window' object. The same thing also works for functions. According to the spec, there is one global object that is available across the broad and whenever you create global variables you are essentially creating properties of that global object.
+- Consider the following code:
+```javascript
+    function setValue() {
+    a = 10;
+    }
+    
+    setValue();
+```
+In this code block, when the code executes, variable a creates in global scope
