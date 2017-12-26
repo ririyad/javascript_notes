@@ -5,7 +5,7 @@ Currently I am learning javascript. During learning I want to take important not
 ### Table Of Contents
 |Sections|Learning Sources|
 |--------|----------------|
-|Up and Going||
+|[Up and Going](https://bitbucket.org/ririyad/javascript_notes/src/c36af2ddd59ac5168937eebea33df2b4435b8e74/sections/up_and_going.md?at=master&fileviewer=file-view-default)||
 |Scope and Closure||
 |Types and Grammar||
 |this and Object Prototype||
