@@ -16,3 +16,7 @@
 ```code
     Hello Arthur
 ```
+    In this code block, when the function is called the method argument acts as a new variable. So, the name variable initialized first and the name in method argument are not the same.
+
+- IIFE: Immediately Invoked Function Expression
+- In JavaScript, if you declare variables then you can do both read and write operation. But if you don't declare variable, you can do write operation, but you can't do read operation.
