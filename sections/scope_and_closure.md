@@ -14,5 +14,5 @@
 ```
     Here, the output will be:
 ```code
-        Hello Arthur
+    Hello Arthur
 ```
