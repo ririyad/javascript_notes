@@ -12,3 +12,7 @@
 
     printGreet("Arthur");
 ```
+Here, the output will be:
+```code
+Hello Arthur
+```
