@@ -40,4 +40,11 @@ In this code block, when the function is called the method argument acts as a ne
     
     setValue();
 ```
-In this code block, when the code executes, variable a creates in global scope
+In this code block, when the code executes, variable a creates in global scope.
+
+### Compilation and Interpretation
+- JavaScript is both compiled and interpreted langauage.
+- In JavaScript, execution is two phase thing:
+    - Compilation step, where scope chains are created, the variable being declared each variable goes and sits one of this scopes in scope chain.
+    - Interpretaion step, where it gets those variables by referring to the scope chain
+> Have a clear concept about Scope Chain 
