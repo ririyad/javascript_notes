@@ -48,3 +48,31 @@ In this code block, when the code executes, variable a creates in global scope.
     - Compilation step, where scope chains are created, the variable being declared each variable goes and sits one of this scopes in scope chain.
     - Interpretaion step, where it gets those variables by referring to the scope chain
 > Have a clear concept about Scope Chain 
+
+- Consider the following code:
+```javascript
+    var a = 10;
+
+    function myFn() {
+    var b = a;
+    console.log(b);
+    console.log(c);
+    }
+
+    myFn();
+```
+The variable ``` c ``` was not created but yet we are trying to do read operation on it. When the interpreter goes to the line:
+```javascript
+console.log(c);
+```
+It notices that, c wasn't created in the ``` myFn() ``` scope, it the interpreter will look up to the global scope to find out the initialization of ``` c ```, but it as ``` c ``` is not also declared in the global scope it will show the following error:
+ ``` code
+ ReferenceError: c is not defined
+ ```
+
+But instead of that, if we do write opearation on it, say:
+```javascript
+// console.log(c); 
+c = 100; 
+```
+In case of write operation, like the previous case, the interpreter will look for initialization of the variable in the ``` myFn() ``` scope. If not found it will look for the global scope. But the variable is not also initialized in the global scope. This time, the interpreter will not show any error, it will create the variable; not in ```myFn() ``` scope, but the global scope.
