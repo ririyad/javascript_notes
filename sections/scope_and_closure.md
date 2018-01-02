@@ -76,3 +76,85 @@ But instead of that, if we do write opearation on it, say:
 c = 100; 
 ```
 In case of write operation, like the previous case, the interpreter will look for initialization of the variable in the ``` myFn() ``` scope. If not found it will look for the global scope. But the variable is not also initialized in the global scope. This time, the interpreter will not show any error, it will create the variable; not in ```myFn() ``` scope, but the global scope.
+
+
+## Closure
+
+- A closure is a function which remembers it's scope.
+- Consider the following code:
+```javascript
+    var a = 10;
+
+    function outer() {
+    var b = 20;
+    
+    var inner = function() {
+        console.log(a);
+        console.log(b);
+    };
+    return inner;
+    }
+
+    var innerFn = outer();
+
+    innerFn();
+```
+In the following code, when the innerFn() is called, the output is
+``` code
+    10
+    20
+```
+
+Again:
+
+```javascript
+    var a = 10;
+
+    function outer() {
+        var b = 20;
+        
+        var inner = function() {
+            console.log(a);
+            console.log(b);
+        };
+    return inner;
+    }
+
+    var innerFn = outer();
+    innerFn();
+
+    var innerFn2 = outer();
+    innerFn2();
+```
+
+This time, if I call innerFn2(), the global variable ``` a ``` will remain same, but a new copy of ``` b ``` will be created. We can prove the statement by modufying the previous code:
+```javascript
+    var a = 10;
+
+    function outer() {
+        a++;
+        b++
+        var b = 20;
+    
+        var inner = function() {
+            console.log(a);
+            console.log(b);
+        };
+    return inner;
+    }
+
+    var innerFn = outer();
+    innerFn();
+
+    var innerFn2 = outer();
+    innerFn2();
+```
+The output will be 
+
+``` code
+11
+21
+12
+21
+```
+In this case, when outer is called second time, the global ``` a ``` was the same, that's why ``` a ``` got incremented, but a new copy of variable ``` b ``` was created. So, instead of ``` 22 ```, the value is again ``` 21 ``` after increment. 
