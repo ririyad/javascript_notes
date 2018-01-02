@@ -81,6 +81,7 @@ In case of write operation, like the previous case, the interpreter will look fo
 ## Closure
 
 - A closure is a function which remembers it's scope.
+- Any variable declared in a function get created everytime the function is called.
 - Consider the following code:
 ```javascript
     var a = 10;
@@ -157,4 +158,8 @@ The output will be
 12
 21
 ```
-In this case, when outer is called second time, the global ``` a ``` was the same, that's why ``` a ``` got incremented, but a new copy of variable ``` b ``` was created. So, instead of ``` 22 ```, the value is again ``` 21 ``` after increment. 
+In this case, when outer is called second time, the global ``` a ``` was the same, that's why ``` a ``` got incremented, but a new copy of variable ``` b ``` was created. So, instead of ``` 22 ```, the value is again ``` 21 ``` after increment.
+
+- Unlike other languages, where we can use private access modifier, javascript doesn't have any term like private. But instead of that, we can use closures to prevent the unexpected access. There's a pattern, called the **Module Pattern** which basically helps creating private data and public api. 
+
+> Need to know **Closures** in depth 
