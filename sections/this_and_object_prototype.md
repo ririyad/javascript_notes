@@ -41,3 +41,24 @@ The output will be: (in Chrome Console)
 Hello
 {prop: "This is the object itself!", foo: f} 
 ```
+- Consuder the snippet
+```javascript 
+funtion foo() {
+    console.log("Hello");
+}
+new foo();
+```
+When a function is called with the ``` new ``` keyoword, the ``` this ``` always refers to newly created object. So, if we rewrite the snippet:
+```javascript 
+funtion foo() {
+    console.log("Hello");
+    console.log(this);
+}
+new foo();
+```
+The output will be: (Chrome)
+``` code
+Hello
+foo{}
+foo{}
+``` 
