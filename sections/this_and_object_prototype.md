@@ -15,5 +15,29 @@ function foo() {
 
 foo();
 ```
-when a function is executed like this, the value of the ``` this ``` keyword is **global object**.
+when a standalone function is executed calling directly like mentioned above, the value of the ``` this ``` keyword is **global object**.
 - The **global object** depends on the runtime environment of javascript: if the javascript runs on a browser, the global object is called the **window object**, if the environment is node.js the global object is called **global**
+- Consider the following code, where function is a property of an object:
+```javascript
+var obj = {};
+obj.foo = function() {
+    console.log("Hello");
+};
+
+obj.foo();
+```
+If a function is called in the context of an objet, then when the function is called the ``` this``` reference is referring to the **object** itself. So, if we rewrite the snippet:
+```javascript
+var obj = {"prop": "This is the object itself!"};
+obj.foo = function() {
+    console.log("Hello");
+    console.log(this);
+};
+
+obj.foo();
+```
+The output will be: (in Chrome Console)
+```code
+Hello
+{prop: "This is the object itself!", foo: f} 
+```
