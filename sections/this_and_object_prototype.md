@@ -7,6 +7,7 @@ function FunctionName()
 - You need to define a constrcutor function with the ``` new ``` keyword.
 - Calling a constructor function without the ``` new ``` keyword doesn't work. No new objects get created, and the return value is undefined.
 - There are two default arguments to every function call: arguments and ``` this ```.
+- There are **four** different ways to call a function in javascript.
 - Consider the following code:
 ``` javascript
 function foo() {
@@ -62,3 +63,25 @@ Hello
 foo{}
 foo{}
 ``` 
+- Each function could have a different ``` this ``` references even though there is a function inside another function. Consider the following code:
+``` javascript 
+function Bicycle(candence, speed, gear, tirePressure) {
+    this.candence = candence;
+    this.speed = speed;
+    this.gear = gear;
+    this.tirePressure = tirePressure;
+    this.inflateTires = function() {
+        this.tirePressure += 3;
+    }
+}
+
+var biCycle1 = new Bicycle(50, 20, 4, 25);
+bicycle1.inflateTires();
+``` 
+In the follwowing code, there is a top level function called ``` Bicycle ``` it's called constructor which is called in the constructor mode, and there is a inner function:
+```javascript
+     this.inflateTires = function() {
+        this.tirePressure += 3;
+    }
+```
+which is not being called in the costructor mode. So, we can say that, this two functions are differnt even though one of them is inside another. that's why their ``` this ``` reference will be different. The ``` this ``` reference of the constructor function is newely created object whereas the ``` this ```reference of the ``` ìnflateTires ``` function is that object whose property is ``` inflateTires```.
